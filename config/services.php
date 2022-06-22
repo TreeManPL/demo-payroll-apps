@@ -31,6 +31,7 @@ use App\Payroll\Domain\Repository\PayrollProjectionRepositoryInterface;
 use App\Payroll\Domain\Service\DepartmentBonus\BonusCalculator;
 use App\Payroll\Domain\Service\DepartmentBonus\FixedBonusStrategy;
 use App\Payroll\Domain\Service\DepartmentBonus\PercentBonusStrategy;
+use App\Payroll\Infrastructure\Console\RefreshAllContractsPayrollProjections;
 use App\Payroll\Infrastructure\Repository\ContractRepository;
 use App\Payroll\Infrastructure\Repository\DepartmentBonusRepository;
 use App\Payroll\Infrastructure\Repository\PayrollProjectionRepository;
@@ -154,4 +155,7 @@ return static function (ContainerConfigurator $configurator): void {
     // query handlers
     $services->set(FindPayrollsHandler::class)
         ->tag('messenger.message_handler');
+
+    // console
+    $services->set(RefreshAllContractsPayrollProjections::class);
 };

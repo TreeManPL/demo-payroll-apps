@@ -18,6 +18,7 @@ class ContractRepository extends ServiceEntityRepository implements ContractRepo
 
     public function findByUserId(string $userId): ?Contract
     {
+
         return $this->find($userId);
     }
 
@@ -25,5 +26,10 @@ class ContractRepository extends ServiceEntityRepository implements ContractRepo
     {
         $this->_em->persist($contract);
         $this->_em->flush();
+    }
+
+    public function findAllContracts(): iterable
+    {
+        return $this->findAll();
     }
 }
