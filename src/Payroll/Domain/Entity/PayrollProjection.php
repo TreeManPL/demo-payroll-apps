@@ -15,8 +15,7 @@ class PayrollProjection
         private int $bonusSalary,
         private string $bonusType,
         private int $totalSalary,
-    )
-    {
+    ) {
     }
 
     public function changeProjectionSallary(int $baseSalary, int $bonusSalary, string $bonusType)

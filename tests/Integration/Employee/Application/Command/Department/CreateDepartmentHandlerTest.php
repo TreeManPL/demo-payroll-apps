@@ -25,9 +25,8 @@ class CreateDepartmentHandlerTest extends KernelTestCase
 
     /**
      * @test
-     *
      */
-    public function department_created_successfully(): void
+    public function departmentCreatedSuccessfully(): void
     {
         // given
         $id = '960a00d8-4ca6-4b71-9ff7-82cd5d17f3fd';
@@ -47,7 +46,7 @@ class CreateDepartmentHandlerTest extends KernelTestCase
     /**
      * @test
      */
-    public function throw_exception_on_duplicate_department(): void
+    public function throwExceptionOnDuplicateDepartment(): void
     {
         // given
         $id = '369f1b00-c820-4dac-9fcb-ee9e64666d3f';

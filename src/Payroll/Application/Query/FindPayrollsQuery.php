@@ -8,7 +8,7 @@ use App\Shared\Application\Query\QueryInterface;
 
 final class FindPayrollsQuery implements QueryInterface
 {
-    public function __construct(private readonly array  $filters,
+    public function __construct(private readonly array $filters,
                                 private readonly string $sort,
                                 private readonly string $direction)
     {

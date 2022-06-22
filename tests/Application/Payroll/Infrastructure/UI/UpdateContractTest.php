@@ -12,7 +12,7 @@ class UpdateContractTest extends WebTestCase
     /**
      * @test
      */
-    public function update_request_successfully(): void
+    public function updateRequestSuccessfully(): void
     {
         $client = self::createClient();
         // given

@@ -12,12 +12,11 @@ class PayrollDTO
         public readonly string $employeeFirstName,
         public readonly string $employeeLastName,
         public readonly string $departmentName,
-        public readonly int    $baseSalary,
-        public readonly int    $bonusSalary,
+        public readonly int $baseSalary,
+        public readonly int $bonusSalary,
         public readonly string $bonusType,
-        public readonly int    $salary
-    )
-    {
+        public readonly int $salary
+    ) {
     }
 
     public static function fromEntity(PayrollProjection $projection): self

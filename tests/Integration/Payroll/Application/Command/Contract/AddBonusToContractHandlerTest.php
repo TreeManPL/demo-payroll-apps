@@ -26,9 +26,8 @@ class AddBonusToContractHandlerTest extends KernelTestCase
 
     /**
      * @test
-     *
      */
-    public function add_bonus_to_contract_successfully(): void
+    public function addBonusToContractSuccessfully(): void
     {
         // given
         $userId = '2019babf-e156-418b-b47a-baae5bdd3c7e';

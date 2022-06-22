@@ -25,9 +25,8 @@ class CreateDepartmentBonusHandlerTest extends KernelTestCase
 
     /**
      * @test
-     *
      */
-    public function department_bonus_created_successfully(): void
+    public function departmentBonusCreatedSuccessfully(): void
     {
         // given
         $departmentId = '8912b86a-af39-4c22-9416-9a4d9b994c54';
@@ -48,7 +47,7 @@ class CreateDepartmentBonusHandlerTest extends KernelTestCase
     /**
      * @test
      */
-    public function throw_exception_on_duplicate_bonus(): void
+    public function throwExceptionOnDuplicateBonus(): void
     {
         // given
         $departmentId = '235f9fd9-7ce7-4eb2-90ef-7dadc0a6ee2d';

@@ -25,9 +25,8 @@ class CreateContractHandlerTest extends KernelTestCase
 
     /**
      * @test
-     *
      */
-    public function contract_created_successfully(): void
+    public function contractCreatedSuccessfully(): void
     {
         // given
         $userId = '43cdff23-cf6f-48e6-9505-a400a0347d54';
@@ -48,7 +47,7 @@ class CreateContractHandlerTest extends KernelTestCase
     /**
      * @test
      */
-    public function throw_exception_on_duplicate_contract(): void
+    public function throwExceptionOnDuplicateContract(): void
     {
         // given
         $userId = '26cc96fe-cf29-45b1-959c-1ba0bb609948';

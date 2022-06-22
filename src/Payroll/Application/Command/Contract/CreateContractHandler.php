@@ -7,7 +7,6 @@ namespace App\Payroll\Application\Command\Contract;
 use App\Payroll\Application\Exception\ContractForUserAlreadyExistsException;
 use App\Payroll\Domain\Factory\ContractFactory;
 use App\Payroll\Domain\Repository\ContractRepositoryInterface;
-use App\Shared\Application\Command\CommandInterface;
 use App\Shared\Application\Event\EventBusInterface;
 use App\Shared\Application\Event\RefreshPayrollEvent;
 

@@ -15,7 +15,7 @@ class PercentBonusStrategyTest extends TestCase
     /**
      * @test
      */
-    public function should_calculate_bonus_sucessfully()
+    public function shouldCalculateBonusSucessfully()
     {
         $departmentBonus = new DepartmentBonus('2cb509e2-a0e6-4d87-a44a-36f27b4ab13b', DepartmentBonusType::Percent, 13);
         $contract = new Contract('59556cc2-2ced-4d56-bcc6-28b1581cf691', 51200, new \DateTime('now'), $departmentBonus);
@@ -24,10 +24,11 @@ class PercentBonusStrategyTest extends TestCase
 
         $this->assertEquals(6656, $bonusCalculator->calculate($contract));
     }
+
     /**
      * @test
      */
-    public function should_calculate_bonus_for_low_salary_sucessfully()
+    public function shouldCalculateBonusForLowSalarySucessfully()
     {
         $departmentBonus = new DepartmentBonus('2cb509e2-a0e6-4d87-a44a-36f27b4ab13b', DepartmentBonusType::Percent, 13);
         $contract = new Contract('59556cc2-2ced-4d56-bcc6-28b1581cf691', 50, new \DateTime('now'), $departmentBonus);

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Payroll\Infrastructure\Console;
 
-
 use App\Payroll\Domain\Repository\ContractRepositoryInterface;
 use App\Shared\Application\Event\EventBusInterface;
 use App\Shared\Application\Event\RefreshPayrollEvent;
@@ -22,9 +21,8 @@ final class RefreshAllContractsPayrollProjections extends Command
 {
     public function __construct(
         private readonly ContractRepositoryInterface $contractRepository,
-        private readonly EventBusInterface           $eventBus
-    )
-    {
+        private readonly EventBusInterface $eventBus
+    ) {
         parent::__construct();
     }
 
@@ -38,6 +36,7 @@ final class RefreshAllContractsPayrollProjections extends Command
         }
 
         $progressBar->finish();
+
         return Command::SUCCESS;
     }
 }

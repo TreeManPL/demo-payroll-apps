@@ -18,7 +18,6 @@ use App\Payroll\Application\Command\Contract\CreateContractHandler;
 use App\Payroll\Application\Command\Contract\UpdateContractHandler;
 use App\Payroll\Application\Command\DepartmentBonus\CreateDepartmentBonusHandler;
 use App\Payroll\Application\Command\DepartmentBonus\UpdateDepartmentBonusHandler;
-use App\Payroll\Application\Event\DepartmentBonusWasCreatedEvent;
 use App\Payroll\Application\Query\FindPayrollsHandler;
 use App\Payroll\Application\Subscriber\DepartmentBonusWasCreatedSubscriber;
 use App\Payroll\Application\Subscriber\RefreshPayrollSubscriber;

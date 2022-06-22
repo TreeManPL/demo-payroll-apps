@@ -18,7 +18,6 @@ class ContractRepository extends ServiceEntityRepository implements ContractRepo
 
     public function findByUserId(string $userId): ?Contract
     {
-
         return $this->find($userId);
     }
 

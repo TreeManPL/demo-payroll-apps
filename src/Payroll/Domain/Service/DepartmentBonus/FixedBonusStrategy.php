@@ -9,7 +9,6 @@ use App\Payroll\Domain\Entity\DepartmentBonusType;
 
 class FixedBonusStrategy implements BonusCalculationStrategyInterface
 {
-
     private const MaxBonusYears = 10;
 
     public function calculate(Contract $contract): int
@@ -21,6 +20,6 @@ class FixedBonusStrategy implements BonusCalculationStrategyInterface
 
     public function supports(DepartmentBonusType $bonusType): bool
     {
-        return $bonusType === DepartmentBonusType::Fixed;
+        return DepartmentBonusType::Fixed === $bonusType;
     }
 }

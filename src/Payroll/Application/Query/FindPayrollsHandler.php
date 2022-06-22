@@ -18,6 +18,6 @@ final class FindPayrollsHandler
      */
     public function __invoke(FindPayrollsQuery $query): iterable
     {
-        return array_map(fn(PayrollProjection $payroll) => PayrollDTO::fromEntity($payroll), $this->projectionRepository->findByCriteria($query->getFilters(), $query->getSort(), $query->getDirection()));
+        return array_map(fn (PayrollProjection $payroll) => PayrollDTO::fromEntity($payroll), $this->projectionRepository->findByCriteria($query->getFilters(), $query->getSort(), $query->getDirection()));
     }
 }

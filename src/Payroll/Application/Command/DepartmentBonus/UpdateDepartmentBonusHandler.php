@@ -8,7 +8,6 @@ use App\Payroll\Application\Event\DepartmentBonusWasUpdatedEvent;
 use App\Payroll\Application\Exception\DepartmentBonusNotExistsException;
 use App\Payroll\Domain\Entity\DepartmentBonusType;
 use App\Payroll\Domain\Repository\DepartmentBonusRepositoryInterface;
-use App\Shared\Application\Command\CommandInterface;
 use App\Shared\Application\Event\EventBusInterface;
 
 final class UpdateDepartmentBonusHandler

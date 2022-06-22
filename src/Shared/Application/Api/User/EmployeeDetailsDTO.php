@@ -12,7 +12,6 @@ class EmployeeDetailsDTO
         public readonly string $lastName,
         public readonly ?string $departmentId,
         public readonly ?string $departmentName
-    )
-    {
+    ) {
     }
 }
