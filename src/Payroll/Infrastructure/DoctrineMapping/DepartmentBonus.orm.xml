@@ -1,0 +1,12 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="https://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="App\Payroll\Domain\Entity\DepartmentBonus" table="payroll_department_bonus">
+        <id name="departmentId" column="department_id" type="string" length="36">
+            <generator strategy="NONE"/>
+        </id>
+        <field name="type" length="16" />
+        <field name="value" type="integer"/>
+    </entity>
+</doctrine-mapping>

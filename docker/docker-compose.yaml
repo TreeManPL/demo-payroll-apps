@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  php:
+    container_name: payroll_php
+    build: php
+    command: "symfony server:start"
+    volumes: [ "../:/app" ]
+    env_file: [ docker-compose.env ]
+    ports:
+      - "8000:8000"
+  postgres:
+    container_name: payroll_postgres
+    image: postgres
+    environment:
+        - "POSTGRES_PASSWORD=example"
+    ports:
+        - "5432:5432"
+  rabbitmq:
+    container_name: payroll_rabbitmq
+    image: rabbitmq:3.9.20-management-alpine
+    environment:
+      - "RABBITMQ_DEFAULT_USER=user"
+      - "RABBITMQ_DEFAULT_PASS=password"
+    ports:
+        - "15672:15672"
+volumes:
+  app:
