@@ -1,0 +1,334 @@
+openapi: 3.0.3
+info:
+  title: Payroll api API docs
+  description: Payroll api API docs
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8000'
+paths:
+  /users:
+    post:
+      tags:
+        - Employee
+      summary: Creates a new user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: Created
+  /users/{id}:
+    get:
+      tags:
+        - Employee
+      summary: Returns a user by ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Id'
+                  - $ref: '#/components/schemas/User'
+    patch:
+      tags:
+        - Employee
+      summary: Update employee details.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '204':
+          description: Updated
+  /departments:
+    post:
+      tags:
+        - Employee
+      summary: Creates a new department.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+      responses:
+        '201':
+          description: Created
+    get:
+      tags:
+        - Employee
+      summary: Returns list of departments.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  allOf:
+                    - $ref: '#/components/schemas/Id'
+                    - $ref: '#/components/schemas/Department'
+  /contracts:
+    post:
+      tags:
+        - Payroll
+      summary: Creates a contract for employee.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/Id'
+                - $ref: '#/components/schemas/Contract'
+      responses:
+        '201':
+          description: Created
+  /contracts/{id}:
+    get:
+      tags:
+        - Payroll
+      summary: Get contract details.
+      parameters:
+        - in: path
+          name: id
+          description: User ID
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Id'
+                  - $ref: '#/components/schemas/Contract'
+    patch:
+      tags:
+        - Payroll
+      summary: Update contract for employee.
+      parameters:
+        - in: path
+          name: id
+          description: User ID
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                salary:
+                  type: number
+                  example: 1000
+      responses:
+        '204':
+          description: Updated
+  /bonuses/department:
+    post:
+      tags:
+        - Payroll
+      summary: Assign bonus to department
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/DepartmentId'
+                - $ref: '#/components/schemas/DepartmentBonus'
+      responses:
+        '201':
+          description: Created
+  /bonuses/department/{departmentId}:
+    get:
+      tags:
+        - Payroll
+      summary: Get department bonus details.
+      parameters:
+        - in: path
+          name: departmentId
+          description: Department ID
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/DepartmentId'
+                  - $ref: '#/components/schemas/DepartmentBonus'
+    patch:
+      tags:
+        - Payroll
+      summary: Update department bonus.
+      parameters:
+        - in: path
+          name: departmentId
+          description: Department ID
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepartmentBonus'
+      responses:
+        '204':
+          description: Updated
+  /payrolls:
+    get:
+      tags:
+        - Payroll
+      summary: Returns list of payrolls.
+      parameters:
+        - in: query
+          name: sort
+          description: Sort by field
+          required: false
+          schema:
+            type: string
+            example: employeeFirstName
+        - in: query
+          name: dir
+          description: Sort direction (asc|desc)
+          required: false
+          schema:
+            type: string
+            example: asc
+        - in: query
+          name: filter[employeeFirstName]
+          description: Filter employeeFirstName
+          required: false
+          schema:
+            type: string
+            example: tidio firstname
+        - in: query
+          name: filter[employeeLastName]
+          description: Filter employeeLastName
+          required: false
+          schema:
+            type: string
+            example: tidio name
+        - in: query
+          name: filter[departmentName]
+          description: Filter departmentName
+          required: false
+          schema:
+            type: string
+            example: tidio HR
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Payroll'
+components:
+  schemas:
+    Id:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+    DepartmentId:
+      type: object
+      properties:
+        departmentId:
+          type: string
+          format: uuid
+    User:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: Arthur
+        lastName:
+          type: string
+          example: Dent
+        departmentId:
+          type: string
+          format: uuid
+          nullable: true
+    Department:
+      type: object
+      properties:
+        name:
+          type: string
+          example: HR
+    Contract:
+      type: object
+      properties:
+        salary:
+          type: number
+          example: 1000
+        workStartAt:
+          type: string
+          format: date
+    DepartmentBonus:
+      type: object
+      properties:
+        type:
+          enum:
+            - 'percent'
+            - 'fixed'
+        value:
+          type: number
+          example: 50
+    Payroll:
+      type: object
+      properties:
+        virstName:
+          type: string
+          example: Arthur
+        lastName:
+          type: string
+          example: Dent
+        departmentName:
+          type: string
+          example: HR
+        baseSalary:
+          type: number
+          example: 1000
+        bonusSalary:
+          type: number
+          example: 58.95
+        bonusType:
+          enum:
+            - 'Percent'
+            - 'Fixed'
+        salary:
+          type: number
+          example: 1058.95

@@ -1,0 +1,10 @@
+employee:
+    resource: ../src/Employee/Infrastructure/UI/
+    type: annotation
+payroll:
+    resource: ../src/Payroll/Infrastructure/UI/
+    type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
