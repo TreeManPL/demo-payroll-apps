@@ -19,7 +19,7 @@ final class EmployeeApi implements EmployeeApiInterface
     {
         $user = $this->userRepository->findById($userId);
 
-        if(null === $user) {
+        if (null === $user) {
             return null;
         }
 

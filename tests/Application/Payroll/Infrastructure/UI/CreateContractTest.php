@@ -12,7 +12,7 @@ class CreateContractTest extends WebTestCase
     /**
      * @test
      */
-    public function contract_request_successfully(): void
+    public function contractRequestSuccessfully(): void
     {
         // when
         $client = self::createClient();

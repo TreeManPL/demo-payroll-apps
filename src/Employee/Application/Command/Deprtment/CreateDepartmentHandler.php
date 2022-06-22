@@ -7,7 +7,6 @@ namespace App\Employee\Application\Command\Deprtment;
 use App\Employee\Application\Exception\DepartmentAlreadyExistsException;
 use App\Employee\Domain\Factory\DepartmentFactory;
 use App\Employee\Domain\Repository\DepartmentRepositoryInterface;
-use App\Shared\Application\Command\CommandInterface;
 
 final class CreateDepartmentHandler
 {
@@ -15,7 +14,7 @@ final class CreateDepartmentHandler
     {
     }
 
-    public function __invoke(CreateDepartmentCommand $command)
+    public function __invoke(CreateDepartmentCommand $command): void
     {
         if (null !== $this->repository->findById($command->getId())) {
             throw DepartmentAlreadyExistsException::create($command->getId());

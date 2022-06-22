@@ -6,13 +6,13 @@ namespace App\Payroll\Application\Exception;
 
 class ContractForUserNotExistsException extends \Exception
 {
-    public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null)
+    public function __construct(string $message = '', int $code = 0, ?\Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }
 
-    public static function create(string $userId)
+    public static function create(string $userId): self
     {
-        return new self(message:\sprintf('Contract not exists for user: %s', $userId));
+        return new self(message: \sprintf('Contract not exists for user: %s', $userId));
     }
 }

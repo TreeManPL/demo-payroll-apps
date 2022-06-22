@@ -7,7 +7,6 @@ namespace App\Payroll\Application\Command\Contract;
 use App\Payroll\Application\Exception\ContractForUserAlreadyExistsException;
 use App\Payroll\Domain\Factory\ContractFactory;
 use App\Payroll\Domain\Repository\ContractRepositoryInterface;
-use App\Shared\Application\Command\CommandInterface;
 use App\Shared\Application\Event\EventBusInterface;
 use App\Shared\Application\Event\RefreshPayrollEvent;
 
@@ -17,7 +16,7 @@ final class CreateContractHandler
     {
     }
 
-    public function __invoke(CreateContractCommand $command)
+    public function __invoke(CreateContractCommand $command): void
     {
         if (null !== $this->repository->findByUserId($command->getUserId())) {
             throw ContractForUserAlreadyExistsException::create($command->getUserId());

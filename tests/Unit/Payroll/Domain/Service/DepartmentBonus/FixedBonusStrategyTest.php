@@ -15,7 +15,7 @@ class FixedBonusStrategyTest extends TestCase
     /**
      * @test
      */
-    public function should_calculate_sucessfully_befoure_first_year_of_work()
+    public function shouldCalculateSucessfullyBefoureFirstYearOfWork(): void
     {
         // given
         $departmentBonus = new DepartmentBonus('2cb509e2-a0e6-4d87-a44a-36f27b4ab13b', DepartmentBonusType::Fixed, 3000);
@@ -30,7 +30,7 @@ class FixedBonusStrategyTest extends TestCase
     /**
      * @test
      */
-    public function should_calculate_sucessfully_after_first_year_of_work()
+    public function shouldCalculateSucessfullyAfterFirstYearOfWork(): void
     {
         $departmentBonus = new DepartmentBonus('2cb509e2-a0e6-4d87-a44a-36f27b4ab13b', DepartmentBonusType::Fixed, 3000);
         $contract = new Contract('59556cc2-2ced-4d56-bcc6-28b1581cf691', 5000, new \DateTime('-16 month'), $departmentBonus);
@@ -43,7 +43,7 @@ class FixedBonusStrategyTest extends TestCase
     /**
      * @test
      */
-    public function should_calculate_sucessfully_after_few_years_first_year_of_work()
+    public function shouldCalculateSucessfullyAfterFewYearsFirstYearOfWork(): void
     {
         $departmentBonus = new DepartmentBonus('2cb509e2-a0e6-4d87-a44a-36f27b4ab13b', DepartmentBonusType::Fixed, 3000);
         $contract = new Contract('59556cc2-2ced-4d56-bcc6-28b1581cf691', 5000, new \DateTime('-25 month'), $departmentBonus);
@@ -53,11 +53,10 @@ class FixedBonusStrategyTest extends TestCase
         $this->assertEquals(6000, $bonusCalculator->calculate($contract));
     }
 
-
     /**
      * @test
      */
-    public function should_calculate_sucessfully_over_ten_years()
+    public function shouldCalculateSucessfullyOverTenYears(): void
     {
         $departmentBonus = new DepartmentBonus('2cb509e2-a0e6-4d87-a44a-36f27b4ab13b', DepartmentBonusType::Fixed, 3000);
         $contract = new Contract('59556cc2-2ced-4d56-bcc6-28b1581cf691', 5000, new \DateTime('-20 year'), $departmentBonus);

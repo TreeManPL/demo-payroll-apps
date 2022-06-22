@@ -9,7 +9,6 @@ use App\Employee\Application\Exception\UserAlreadyExistsException;
 use App\Employee\Domain\Factory\UserFactory;
 use App\Employee\Domain\Repository\DepartmentRepositoryInterface;
 use App\Employee\Domain\Repository\UserRepositoryInterface;
-use App\Shared\Application\Command\CommandInterface;
 
 final class CreateUserHandler
 {
@@ -17,7 +16,7 @@ final class CreateUserHandler
     {
     }
 
-    public function __invoke(CreateUserCommand $command)
+    public function __invoke(CreateUserCommand $command): void
     {
         if (null !== $this->userRepository->findById($command->getId())) {
             throw UserAlreadyExistsException::create($command->getId());
@@ -28,7 +27,7 @@ final class CreateUserHandler
             default => $this->departmentRepository->findById($command->getDepartmentId())
         };
 
-        if(null === $department && null !== $command->getDepartmentId()) {
+        if (null === $department && null !== $command->getDepartmentId()) {
             throw DepartmentNotExistsException::create($command->getDepartmentId());
         }
 

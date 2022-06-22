@@ -16,9 +16,13 @@ class GetPayrolls
 {
     private const DEFAULT_SORT = 'firstName';
     private const DEFAULT_SORT_ORDER = 'asc';
+
+    /** @var array|string[]  */
     private static array $allowFilter = [
-        'firstName', 'lastName', 'departmentName'
+        'firstName', 'lastName', 'departmentName',
     ];
+
+    /** @var array|string[]  */
     private static array $allowSort = [
         'firstName',
         'lastName',
@@ -26,8 +30,10 @@ class GetPayrolls
         'baseSalary',
         'bonusSalary',
         'bonusType',
-        'salary'
+        'salary',
     ];
+
+    /** @var array|string[]  */
     private static array $allowSortDirection = ['asc', 'desc'];
 
     public function __construct(private readonly QueryBusInterface $queryBus)
@@ -68,10 +74,10 @@ class GetPayrolls
                 'firstName' => $result->employeeFirstName,
                 'lastName' => $result->employeeLastName,
                 'departmentName' => $result->departmentName,
-                'baseSalary' => (float)$result->baseSalary / 100,
-                'bonusSalary' => (float)$result->bonusSalary / 100,
+                'baseSalary' => (float) $result->baseSalary / 100,
+                'bonusSalary' => (float) $result->bonusSalary / 100,
                 'bonusType' => $result->bonusType,
-                'salary' => (float)$result->salary / 100
+                'salary' => (float) $result->salary / 100,
             ];
         }
 

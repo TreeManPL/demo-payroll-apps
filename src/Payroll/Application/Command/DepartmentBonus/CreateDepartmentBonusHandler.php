@@ -8,7 +8,6 @@ use App\Payroll\Application\Event\DepartmentBonusWasCreatedEvent;
 use App\Payroll\Application\Exception\DepartmentBonusAlreadyExistsException;
 use App\Payroll\Domain\Factory\DepartmentBonusFactory;
 use App\Payroll\Domain\Repository\DepartmentBonusRepositoryInterface;
-use App\Shared\Application\Command\CommandInterface;
 use App\Shared\Application\Event\EventBusInterface;
 
 final class CreateDepartmentBonusHandler
@@ -17,7 +16,7 @@ final class CreateDepartmentBonusHandler
     {
     }
 
-    public function __invoke(CreateDepartmentBonusCommand $command)
+    public function __invoke(CreateDepartmentBonusCommand $command): void
     {
         if (null !== $this->repository->findByDepartmentId($command->getDepartmentId())) {
             throw DepartmentBonusAlreadyExistsException::create($command->getDepartmentId());

@@ -1,0 +1,23 @@
+parameters:
+    paths:
+        - ./src
+    layers:
+        - name: Shared
+          collectors:
+              - type: directory
+                regex: /src/Shared/.*
+
+        - name: Employee
+          collectors:
+              - type: directory
+                regex: /src/Employee/Application/.*
+
+        - name: Payroll
+          collectors:
+              - type: directory
+                regex: /src/Payroll/Infrastructure/.*
+    ruleset:
+        Employee:
+            - Shared
+        Payroll:
+            - Shared

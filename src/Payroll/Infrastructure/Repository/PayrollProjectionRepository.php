@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Payroll\Infrastructure\Repository;
 
-use App\Payroll\Domain\Entity\Contract;
 use App\Payroll\Domain\Entity\PayrollProjection;
-use App\Payroll\Domain\Repository\ContractRepositoryInterface;
 use App\Payroll\Domain\Repository\PayrollProjectionRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;

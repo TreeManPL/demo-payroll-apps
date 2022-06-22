@@ -15,16 +15,15 @@ use App\Shared\Application\Event\RefreshPayrollEvent;
 final class RefreshPayrollSubscriber
 {
     public function __construct(
-        private readonly ContractRepositoryInterface          $contractRepository,
+        private readonly ContractRepositoryInterface $contractRepository,
         private readonly PayrollProjectionRepositoryInterface $projectionRepository,
-        private readonly EmployeeApi                          $employeeApi,
-        private readonly BonusCalculator                      $bonusCalculator,
-        private readonly PayrollProjectionFactory             $factory,
-    )
-    {
+        private readonly EmployeeApi $employeeApi,
+        private readonly BonusCalculator $bonusCalculator,
+        private readonly PayrollProjectionFactory $factory,
+    ) {
     }
 
-    public function __invoke(RefreshPayrollEvent $event)
+    public function __invoke(RefreshPayrollEvent $event): void
     {
         $contract = $this->contractRepository->findByUserId($event->userId);
         $payroll = $this->projectionRepository->findByUserId($event->userId);
@@ -43,6 +42,7 @@ final class RefreshPayrollSubscriber
     private function initPayroll(string $userId, int $salary, int $bonusSalary, string $bonusType): PayrollProjection
     {
         $employee = $this->employeeApi->findEmployeeDetails($userId);
+
         return $this->factory->create(
             $userId,
             $employee?->firstName ?? '-',
@@ -56,7 +56,8 @@ final class RefreshPayrollSubscriber
 
     private function updatePayroll(PayrollProjection $payrollProjection, int $salary, int $bonusSalary, string $bonusType): PayrollProjection
     {
-        $payrollProjection->changeProjectionSallary($salary, $bonusSalary, $bonusType,);
+        $payrollProjection->changeProjectionSallary($salary, $bonusSalary, $bonusType);
+
         return $payrollProjection;
     }
 }

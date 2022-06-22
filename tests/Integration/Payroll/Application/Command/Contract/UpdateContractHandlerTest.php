@@ -27,13 +27,12 @@ class UpdateContractHandlerTest extends KernelTestCase
     /**
      * @test
      */
-    public function contract_updated_successfully(): void
+    public function contractUpdatedSuccessfully(): void
     {
         // given
         $userId = '2c1de971-2a53-4bf4-b731-b7bae232f55f';
         $salary = 2000;
         $updatedSalary = 3000;
-
 
         $createCommand = new CreateContractCommand(
             $userId,
@@ -59,7 +58,7 @@ class UpdateContractHandlerTest extends KernelTestCase
     /**
      * @test
      */
-    public function throw_exception_on_no_contract(): void
+    public function throwExceptionOnNoContract(): void
     {
         $userId = '435028e3-940a-4da6-a326-04012dd40295';
 

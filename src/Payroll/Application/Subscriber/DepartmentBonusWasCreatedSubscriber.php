@@ -15,7 +15,7 @@ class DepartmentBonusWasCreatedSubscriber
     {
     }
 
-    public function __invoke(DepartmentBonusWasCreatedEvent $event)
+    public function __invoke(DepartmentBonusWasCreatedEvent $event): void
     {
         $users = $this->employeeApi->findEmployeesDetailsByDepartmentId($event->departmentId);
 

@@ -6,7 +6,7 @@ namespace App\Employee\Application\Exception;
 
 final class DepartmentAlreadyExistsException extends \Exception
 {
-    public static function create(string $id)
+    public static function create(string $id): self
     {
         return new self(message: \sprintf('Department with %s already exists', $id));
     }

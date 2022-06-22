@@ -6,13 +6,13 @@ namespace App\Payroll\Application\Exception;
 
 class DepartmentBonusAlreadyExistsException extends \Exception
 {
-    public function __construct(string $message = "", int $code = 0, ?\Throwable $previous = null)
+    public function __construct(string $message = '', int $code = 0, ?\Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }
 
-    public static function create(string $departmentId)
+    public static function create(string $departmentId): self
     {
-        return new self(message:\sprintf('Department bonus exists for department: %s', $departmentId));
+        return new self(message: \sprintf('Department bonus exists for department: %s', $departmentId));
     }
 }

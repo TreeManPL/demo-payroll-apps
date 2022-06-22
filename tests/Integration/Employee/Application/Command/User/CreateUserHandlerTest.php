@@ -6,10 +6,8 @@ namespace App\Tests\Integration\Employee\Application\Command\User;
 
 use App\Employee\Application\Command\Deprtment\CreateDepartmentCommand;
 use App\Employee\Application\Command\User\CreateUserCommand;
-use App\Employee\Application\Exception\DepartmentAlreadyExistsException;
 use App\Employee\Application\Exception\DepartmentNotExistsException;
 use App\Employee\Application\Exception\UserAlreadyExistsException;
-use App\Employee\Domain\Repository\DepartmentRepositoryInterface;
 use App\Employee\Domain\Repository\UserRepositoryInterface;
 use App\Shared\Application\Command\CommandBusInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -17,7 +15,6 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 class CreateUserHandlerTest extends KernelTestCase
 {
     private CommandBusInterface $commandBus;
-    private DepartmentRepositoryInterface $departmentRepository;
     private UserRepositoryInterface $userRepository;
 
     public function setUp(): void
@@ -25,15 +22,13 @@ class CreateUserHandlerTest extends KernelTestCase
         parent::setUp();
 
         $this->commandBus = static::getContainer()->get(CommandBusInterface::class);
-        $this->departmentRepository = static::getContainer()->get(DepartmentRepositoryInterface::class);
         $this->userRepository = static::getContainer()->get(UserRepositoryInterface::class);
     }
 
     /**
      * @test
-     *
      */
-    public function user_created_without_department_successfully(): void
+    public function userCreatedWithoutDepartmentSuccessfully(): void
     {
         // given
         $id = '59bc24a6-2df8-4a78-bcbb-e067b6c3f8a3';
@@ -54,9 +49,8 @@ class CreateUserHandlerTest extends KernelTestCase
 
     /**
      * @test
-     *
      */
-    public function user_created_with_department_successfully(): void
+    public function userCreatedWithDepartmentSuccessfully(): void
     {
         // given
         $departmentId = '00ea7798-b419-4bf5-9cc9-c3810bb2cd8c';
@@ -85,7 +79,7 @@ class CreateUserHandlerTest extends KernelTestCase
     /**
      * @test
      */
-    public function throw_exception_on_duplicate_user(): void
+    public function throwExceptionOnDuplicateUser(): void
     {
         // given
         $id = 'a293287e-d366-4efc-9480-4caf13405afe';
@@ -106,7 +100,7 @@ class CreateUserHandlerTest extends KernelTestCase
     /**
      * @test
      */
-    public function throw_exception_on_missing_department(): void
+    public function throwExceptionOnMissingDepartment(): void
     {
         // given
         $id = '42d1b846-692f-458e-8622-63d65bddd044';

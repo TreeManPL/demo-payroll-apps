@@ -4,15 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests\Integration\Payroll\Domain\Service\DepartmentBonus;
 
-use App\Payroll\Application\Command\DepartmentBonus\CreateDepartmentBonusCommand;
-use App\Payroll\Application\Exception\DepartmentBonusAlreadyExistsException;
 use App\Payroll\Domain\Entity\Contract;
 use App\Payroll\Domain\Entity\DepartmentBonus;
 use App\Payroll\Domain\Entity\DepartmentBonusType;
-use App\Payroll\Domain\Repository\DepartmentBonusRepositoryInterface;
 use App\Payroll\Domain\Service\DepartmentBonus\BonusCalculator;
-use App\Payroll\Domain\Service\DepartmentBonus\PercentBonusStrategy;
-use App\Shared\Application\Command\CommandBusInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class BonusCalculatorTest extends KernelTestCase
@@ -28,9 +23,8 @@ class BonusCalculatorTest extends KernelTestCase
 
     /**
      * @test
-     *
      */
-    public function should_calculate_percent_bonus_successfully(): void
+    public function shouldCalculatePercentBonusSuccessfully(): void
     {
         // given
         $departmentBonus = new DepartmentBonus('2cb509e2-a0e6-4d87-a44a-36f27b4ab13b', DepartmentBonusType::Percent, 13);
@@ -45,9 +39,8 @@ class BonusCalculatorTest extends KernelTestCase
 
     /**
      * @test
-     *
      */
-    public function should_calculate_fixed_bonus_successfully(): void
+    public function shouldCalculateFixedBonusSuccessfully(): void
     {
         // given
         $departmentBonus = new DepartmentBonus('2cb509e2-a0e6-4d87-a44a-36f27b4ab13b', DepartmentBonusType::Fixed, 3000);
