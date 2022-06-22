@@ -11,4 +11,9 @@ interface ContractRepositoryInterface
     public function findByUserId(string $userId): ?Contract;
 
     public function save(Contract $contract): void;
+
+    /**
+     * @return Contract[]
+     */
+    public function findAllContracts(): iterable;
 }
