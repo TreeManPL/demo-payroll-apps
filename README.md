@@ -34,6 +34,11 @@ To run application just type in console
 ./bin/console messenger:consume
 ```
 
+### To refresh all contracts payroll projection run
+```
+./bin/console app:refresh-all_contracts-payroll-projections
+```
+
 ### Credentials
 
 RabbitMq
