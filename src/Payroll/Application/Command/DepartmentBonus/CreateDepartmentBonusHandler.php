@@ -16,7 +16,7 @@ final class CreateDepartmentBonusHandler
     {
     }
 
-    public function __invoke(CreateDepartmentBonusCommand $command)
+    public function __invoke(CreateDepartmentBonusCommand $command): void
     {
         if (null !== $this->repository->findByDepartmentId($command->getDepartmentId())) {
             throw DepartmentBonusAlreadyExistsException::create($command->getDepartmentId());

@@ -26,7 +26,7 @@ class UserApiTest extends KernelTestCase
     /**
      * @test
      */
-    public function getUserByIdSuccessfully()
+    public function getUserByIdSuccessfully(): void
     {
         // given
         $userId = '3ec388e7-269f-45f0-ab31-943a5aeb9bb3';
@@ -49,7 +49,7 @@ class UserApiTest extends KernelTestCase
     /**
      * @test
      */
-    public function getUsersByDepartmentId()
+    public function getUsersByDepartmentId(): void
     {
         // given
         $departmentId = 'f58f17a6-c557-4661-bad4-de0d71e72949';

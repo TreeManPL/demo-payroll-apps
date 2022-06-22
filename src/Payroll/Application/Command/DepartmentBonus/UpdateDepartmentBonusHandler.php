@@ -16,7 +16,7 @@ final class UpdateDepartmentBonusHandler
     {
     }
 
-    public function __invoke(UpdateDepartmentBonusCommand $command)
+    public function __invoke(UpdateDepartmentBonusCommand $command): void
     {
         $departmentBonus = $this->repository->findByDepartmentId($command->getDepartmentId());
         if (null === $departmentBonus) {

@@ -16,7 +16,7 @@ final class CreateContractHandler
     {
     }
 
-    public function __invoke(CreateContractCommand $command)
+    public function __invoke(CreateContractCommand $command): void
     {
         if (null !== $this->repository->findByUserId($command->getUserId())) {
             throw ContractForUserAlreadyExistsException::create($command->getUserId());

@@ -11,7 +11,7 @@ class DepartmentBonusAlreadyExistsException extends \Exception
         parent::__construct($message, $code, $previous);
     }
 
-    public static function create(string $departmentId)
+    public static function create(string $departmentId): self
     {
         return new self(message: \sprintf('Department bonus exists for department: %s', $departmentId));
     }

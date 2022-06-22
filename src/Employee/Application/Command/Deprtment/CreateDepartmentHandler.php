@@ -14,7 +14,7 @@ final class CreateDepartmentHandler
     {
     }
 
-    public function __invoke(CreateDepartmentCommand $command)
+    public function __invoke(CreateDepartmentCommand $command): void
     {
         if (null !== $this->repository->findById($command->getId())) {
             throw DepartmentAlreadyExistsException::create($command->getId());

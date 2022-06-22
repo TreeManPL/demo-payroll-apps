@@ -61,3 +61,19 @@ Login to php container
 ```
 ./bin/docker.sh sh php
 ```
+
+## Clean code tools
+PHP-cs-fixer
+```
+./vendor/bin/php-cs-fixer fix
+```
+
+Deptrack
+```
+./vendor/bin/deptrac
+./vendor/bin/deptrac --config-file=deptrac-contexts.yaml
+```
+PHPStan
+```
+./vendor/bin/phpstan
+```

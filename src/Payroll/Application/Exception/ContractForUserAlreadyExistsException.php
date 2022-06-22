@@ -11,7 +11,7 @@ class ContractForUserAlreadyExistsException extends \Exception
         parent::__construct($message, $code, $previous);
     }
 
-    public static function create(string $userId)
+    public static function create(string $userId): self
     {
         return new self(message: \sprintf('Contract exists for user: %s', $userId));
     }

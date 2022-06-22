@@ -15,7 +15,7 @@ final class UpdateContractHandler
     {
     }
 
-    public function __invoke(UpdateContractCommand $command)
+    public function __invoke(UpdateContractCommand $command): void
     {
         $contract = $this->repository->findByUserId($command->getUserId());
         if (null === $contract) {

@@ -23,7 +23,7 @@ final class RefreshPayrollSubscriber
     ) {
     }
 
-    public function __invoke(RefreshPayrollEvent $event)
+    public function __invoke(RefreshPayrollEvent $event): void
     {
         $contract = $this->contractRepository->findByUserId($event->userId);
         $payroll = $this->projectionRepository->findByUserId($event->userId);

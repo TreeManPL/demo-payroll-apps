@@ -8,7 +8,6 @@ use App\Employee\Application\Command\Deprtment\CreateDepartmentCommand;
 use App\Employee\Application\Command\User\CreateUserCommand;
 use App\Employee\Application\Exception\DepartmentNotExistsException;
 use App\Employee\Application\Exception\UserAlreadyExistsException;
-use App\Employee\Domain\Repository\DepartmentRepositoryInterface;
 use App\Employee\Domain\Repository\UserRepositoryInterface;
 use App\Shared\Application\Command\CommandBusInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -16,7 +15,6 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 class CreateUserHandlerTest extends KernelTestCase
 {
     private CommandBusInterface $commandBus;
-    private DepartmentRepositoryInterface $departmentRepository;
     private UserRepositoryInterface $userRepository;
 
     public function setUp(): void
@@ -24,7 +22,6 @@ class CreateUserHandlerTest extends KernelTestCase
         parent::setUp();
 
         $this->commandBus = static::getContainer()->get(CommandBusInterface::class);
-        $this->departmentRepository = static::getContainer()->get(DepartmentRepositoryInterface::class);
         $this->userRepository = static::getContainer()->get(UserRepositoryInterface::class);
     }
 

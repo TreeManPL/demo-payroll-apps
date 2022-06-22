@@ -18,7 +18,7 @@ class PayrollProjection
     ) {
     }
 
-    public function changeProjectionSallary(int $baseSalary, int $bonusSalary, string $bonusType)
+    public function changeProjectionSallary(int $baseSalary, int $bonusSalary, string $bonusType): void
     {
         $this->baseSalary = $baseSalary;
         $this->bonusSalary = $bonusSalary;
@@ -59,5 +59,10 @@ class PayrollProjection
     public function getTotalSalary(): int
     {
         return $this->totalSalary;
+    }
+
+    public function getUserId(): string
+    {
+        return $this->userId;
     }
 }

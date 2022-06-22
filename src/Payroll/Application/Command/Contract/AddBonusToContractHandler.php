@@ -7,17 +7,17 @@ namespace App\Payroll\Application\Command\Contract;
 use App\Payroll\Application\Exception\ContractForUserNotExistsException;
 use App\Payroll\Application\Exception\DepartmentBonusNotExistsException;
 use App\Payroll\Domain\Repository\ContractRepositoryInterface;
-use App\Payroll\Infrastructure\Repository\DepartmentBonusRepository;
+use App\Payroll\Domain\Repository\DepartmentBonusRepositoryInterface;
 use App\Shared\Application\Event\EventBusInterface;
 use App\Shared\Application\Event\RefreshPayrollEvent;
 
 final class AddBonusToContractHandler
 {
-    public function __construct(private readonly ContractRepositoryInterface $contractRepository, private readonly DepartmentBonusRepository $bonusRepository, private readonly EventBusInterface $eventBus)
+    public function __construct(private readonly ContractRepositoryInterface $contractRepository, private readonly DepartmentBonusRepositoryInterface $bonusRepository, private readonly EventBusInterface $eventBus)
     {
     }
 
-    public function __invoke(AddBonusToContractCommand $command)
+    public function __invoke(AddBonusToContractCommand $command): void
     {
         $contract = $this->contractRepository->findByUserId($command->getUserId());
         if (null === $contract) {

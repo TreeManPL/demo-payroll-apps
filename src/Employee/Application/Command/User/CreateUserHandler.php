@@ -16,7 +16,7 @@ final class CreateUserHandler
     {
     }
 
-    public function __invoke(CreateUserCommand $command)
+    public function __invoke(CreateUserCommand $command): void
     {
         if (null !== $this->userRepository->findById($command->getId())) {
             throw UserAlreadyExistsException::create($command->getId());
