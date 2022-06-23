@@ -22,7 +22,7 @@ class UpdateContract
         $data = $request->toArray();
         $createCommand = new UpdateContractCommand(
             $id,
-            (int)($data['salary'] * 100),
+            (int) ($data['salary'] * 100),
         );
 
         try {
