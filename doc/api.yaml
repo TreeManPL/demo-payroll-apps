@@ -216,7 +216,7 @@ components:
       properties:
         salary:
           type: number
-          example: 1000
+          example: 1000.28
         workStartAt:
           type: string
           format: date
@@ -244,7 +244,7 @@ components:
           example: HR
         baseSalary:
           type: number
-          example: 1000
+          example: 1000.58
         bonusSalary:
           type: number
           example: 58.95
