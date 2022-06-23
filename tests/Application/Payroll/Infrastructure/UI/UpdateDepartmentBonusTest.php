@@ -12,7 +12,7 @@ class UpdateDepartmentBonusTest extends WebTestCase
     /**
      * @test
      */
-    public function updateRequestSuccessfully(): void
+    public function update_request_successfully(): void
     {
         $client = self::createClient();
         // given
