@@ -22,7 +22,7 @@ class CreateContract
         $data = $request->toArray();
         $createCommand = new CreateContractCommand(
             $data['userId'],
-            $data['salary'],
+            (int)($data['salary'] * 100),
             new \DateTime($data['workStartAt']),
         );
 

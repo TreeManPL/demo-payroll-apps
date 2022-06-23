@@ -23,7 +23,7 @@ class UpdateDepartmentBonus
         $createCommand = new UpdateDepartmentBonusCommand(
             $departmentId,
             $data['type'],
-            $data['value'],
+            $data['type'] === 'fixed' ? (int)($data['value'] * 100) : $data['value']
         );
 
         try {
