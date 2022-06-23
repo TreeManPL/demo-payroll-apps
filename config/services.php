@@ -20,6 +20,7 @@ use App\Payroll\Application\Command\DepartmentBonus\CreateDepartmentBonusHandler
 use App\Payroll\Application\Command\DepartmentBonus\UpdateDepartmentBonusHandler;
 use App\Payroll\Application\Query\FindPayrollsHandler;
 use App\Payroll\Application\Subscriber\DepartmentBonusWasCreatedSubscriber;
+use App\Payroll\Application\Subscriber\DepartmentBonusWasUpdatedSubscriber;
 use App\Payroll\Application\Subscriber\RefreshPayrollSubscriber;
 use App\Payroll\Domain\Factory\ContractFactory;
 use App\Payroll\Domain\Factory\DepartmentBonusFactory;
@@ -147,6 +148,8 @@ return static function (ContainerConfigurator $configurator): void {
 
     // event handlers
     $services->set(DepartmentBonusWasCreatedSubscriber::class)
+        ->tag('messenger.message_handler');
+    $services->set(DepartmentBonusWasUpdatedSubscriber::class)
         ->tag('messenger.message_handler');
     $services->set(RefreshPayrollSubscriber::class)
         ->tag('messenger.message_handler');

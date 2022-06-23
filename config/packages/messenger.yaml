@@ -16,7 +16,7 @@ framework:
         transports:
             # https://symfony.com/doc/current/messenger.html#transport-configuration
              async: '%env(EVENT_MESSAGE_TRANSPORT_DSN)%'
-#             sync: 'sync://'Ą
+#             sync: 'sync://'
             # failed: 'doctrine://default?queue_name=failed'
 
         routing:
