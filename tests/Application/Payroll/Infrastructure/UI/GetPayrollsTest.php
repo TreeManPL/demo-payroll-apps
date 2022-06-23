@@ -29,7 +29,7 @@ class GetPayrollsTest extends WebTestCase
     /**
      * @test
      */
-    public function sort_successfully_response(): void
+    public function sortSuccessfullyResponse(): void
     {
         $client = self::createClient();
         // when
@@ -40,13 +40,13 @@ class GetPayrollsTest extends WebTestCase
 
         // then
         self::assertResponseStatusCodeSame(Response::HTTP_OK);
-        self::assertJsonStringEqualsJsonFile(self::RESPONSE_ROOT_DIR . 'sort_successfully_response.json', $client->getResponse()->getContent());
+        self::assertJsonStringEqualsJsonFile(self::RESPONSE_ROOT_DIR.'sort_successfully_response.json', $client->getResponse()->getContent());
     }
 
     /**
      * @test
      */
-    public function order_successfully_response(): void
+    public function orderSuccessfullyResponse(): void
     {
         $client = self::createClient();
         // when
@@ -57,13 +57,13 @@ class GetPayrollsTest extends WebTestCase
 
         // then
         self::assertResponseStatusCodeSame(Response::HTTP_OK);
-        self::assertJsonStringEqualsJsonFile(self::RESPONSE_ROOT_DIR . 'order_successfully_response.json', $client->getResponse()->getContent());
+        self::assertJsonStringEqualsJsonFile(self::RESPONSE_ROOT_DIR.'order_successfully_response.json', $client->getResponse()->getContent());
     }
 
     /**
      * @test
      */
-    public function filter_successfully_response(): void
+    public function filterSuccessfullyResponse(): void
     {
         $client = self::createClient();
         // when
@@ -74,13 +74,12 @@ class GetPayrollsTest extends WebTestCase
 
         // then
         self::assertResponseStatusCodeSame(Response::HTTP_OK);
-        self::assertJsonStringEqualsJsonFile(self::RESPONSE_ROOT_DIR . 'filter_successfully_response.json', $client->getResponse()->getContent());
+        self::assertJsonStringEqualsJsonFile(self::RESPONSE_ROOT_DIR.'filter_successfully_response.json', $client->getResponse()->getContent());
     }
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->tearDown();
-
     }
 }
