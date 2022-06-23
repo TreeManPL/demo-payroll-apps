@@ -7,7 +7,7 @@ namespace App\Payroll\Application\Event;
 use App\Shared\Application\Event\AsyncEventInterface;
 use App\Shared\Application\Event\EventInterface;
 
-class DepartmentBonusWasUpdatedEvent implements EventInterface, AsyncEventInterface
+class DepartmentBonusWasUpdatedEvent implements EventInterface
 {
     public function __construct(public readonly string $departmentId)
     {
