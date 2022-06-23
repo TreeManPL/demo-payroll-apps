@@ -93,4 +93,7 @@ RUN chmod a+x /usr/local/bin/install-composer.sh
 RUN /usr/local/bin/install-composer.sh
 RUN rm /usr/local/bin/install-composer.sh
 
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod a+x /usr/local/bin/entrypoint.sh
+
 WORKDIR /app

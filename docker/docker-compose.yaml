@@ -3,11 +3,14 @@ services:
   php:
     container_name: payroll_php
     build: php
-    command: "symfony server:start"
+    command: "/usr/local/bin/entrypoint.sh"
     volumes: [ "../:/app" ]
     env_file: [ docker-compose.env ]
     ports:
       - "8000:8000"
+    depends_on:
+      - postgres
+      - rabbitmq
   postgres:
     container_name: payroll_postgres
     image: postgres
