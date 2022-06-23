@@ -17,12 +17,12 @@ class GetPayrolls
     private const DEFAULT_SORT = 'firstName';
     private const DEFAULT_SORT_ORDER = 'asc';
 
-    /** @var array|string[]  */
+    /** @var array|string[] */
     private static array $allowFilter = [
         'firstName', 'lastName', 'departmentName',
     ];
 
-    /** @var array|string[]  */
+    /** @var array|string[] */
     private static array $allowSort = [
         'firstName',
         'lastName',
@@ -33,7 +33,7 @@ class GetPayrolls
         'salary',
     ];
 
-    /** @var array|string[]  */
+    /** @var array|string[] */
     private static array $allowSortDirection = ['asc', 'desc'];
 
     public function __construct(private readonly QueryBusInterface $queryBus)

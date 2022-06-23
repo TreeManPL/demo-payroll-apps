@@ -1,0 +1,11 @@
+[
+  {
+    "firstName": "Mike",
+    "lastName": "Andrus",
+    "departmentName": "ABC",
+    "baseSalary": 250,
+    "bonusSalary": 30,
+    "bonusType": "fixed",
+    "salary": 280
+  }
+]

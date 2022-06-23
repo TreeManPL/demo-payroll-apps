@@ -1,0 +1,29 @@
+[
+  {
+    "firstName": "Zack",
+    "lastName": "Wilder",
+    "departmentName": "ZAC",
+    "baseSalary": 500,
+    "bonusSalary": 25,
+    "bonusType": "percent",
+    "salary": 525
+  },
+  {
+    "firstName": "Mike",
+    "lastName": "Andrus",
+    "departmentName": "ABC",
+    "baseSalary": 250,
+    "bonusSalary": 30,
+    "bonusType": "fixed",
+    "salary": 280
+  },
+  {
+    "firstName": "Adam",
+    "lastName": "Ender",
+    "departmentName": "ABC",
+    "baseSalary": 100,
+    "bonusSalary": 1.5,
+    "bonusType": "percent",
+    "salary": 101.5
+  }
+]
